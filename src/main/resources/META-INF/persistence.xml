@@ -1,7 +1,13 @@
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.1">
     <persistence-unit name="gestioneBibliotecaPU">
         <!--classi che saranno soggette a persistenza -->
-        <!-- <class>org.epicode.Persona</class> -->
+         <class>org.example.Entities.Autore</class>
+         <class>org.example.Entities.Genere</class>
+         <class>org.example.Entities.Libro</class>
+         <class>org.example.Entities.Prestito</class>
+         <class>org.example.Entities.Pubblicazioni</class>
+         <class>org.example.Entities.Rivista</class>
+         <class>org.example.Entities.Utente</class>
         <!--configurazione della connessione al db-->
         <properties>
             <!--driver pg -->

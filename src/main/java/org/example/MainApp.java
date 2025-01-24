@@ -57,7 +57,7 @@ public class MainApp {
         pubblicazioneDAO.aggiungiPubblicazione(rivista1);
         pubblicazioneDAO.aggiungiPubblicazione(rivista2);
         pubblicazioneDAO.aggiungiPubblicazione(rivista3);
-        
+
     }
 
 }
