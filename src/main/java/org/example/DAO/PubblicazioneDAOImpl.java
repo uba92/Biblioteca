@@ -2,8 +2,12 @@ package org.example.DAO;
 
 
 import jakarta.persistence.EntityManager;
+import org.example.Entities.Autore;
 import org.example.Entities.Pubblicazioni;
+import org.example.Entities.Utente;
 import org.example.EntityManagerUtil;
+
+import java.util.List;
 
 public class PubblicazioneDAOImpl implements PubblicazioneDAO {
 
@@ -64,4 +68,38 @@ public class PubblicazioneDAOImpl implements PubblicazioneDAO {
             em.close();
         }
     }
+
+    @Override
+    public List<Pubblicazioni> cercaDaAutore(Autore autore) {
+        EntityManager em = EntityManagerUtil.getEntityManager();
+        try{
+            return em.createQuery("SELECT * FROM pubblicazioni ", Pubblicazioni.class).getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        finally{
+            em.close();
+        }
+    }
+
+    @Override
+    public Pubblicazioni cercaDaTitle(String titolo) {
+        EntityManager em = EntityManagerUtil.getEntityManager();
+        try{
+            em.getTransaction().begin();
+            Pubblicazioni pubblicazioneTrovata = em.find(Pubblicazioni.class, titolo);
+            em.getTransaction().commit();
+            return pubblicazioneTrovata;
+        } catch (Exception e) {
+            if (em.getTransaction().isActive())
+                em.getTransaction().rollback();
+            e.printStackTrace();
+            return null;
+        }
+        finally{
+            em.close();
+        }
+    }
+
 }

@@ -14,9 +14,9 @@ public interface PubblicazioneDAO {
 
 //    List<Pubblicazioni> cercaDaYear(int anno_pubblicazione);
 //
-//    List<Pubblicazioni> cercaDaAutore(Autore autore);
+    List<Pubblicazioni> cercaDaAutore(Autore autore);
 //
-//    Pubblicazioni cercaDaTitle(String titolo);
+    Pubblicazioni cercaDaTitle(String titolo);
 //
 //    List<Pubblicazioni> elementiInPrestito (Long numero_tessera);
 
